@@ -25,6 +25,8 @@ Or install it yourself as:
 
 ## Usage
 
+Please set a ENV['PUSHCREW_TOKEN'] in your project.
+
 ### Send to All Subscribers
     Pushcrew::PushNotification.send_to_all_subscribers({title:"Your_Title",message:"Your_Message",url:"Your_URL"})
 
