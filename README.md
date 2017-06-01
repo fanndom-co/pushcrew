@@ -4,6 +4,9 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+## Reference 
+http://api.pushcrew.com/docs/introduction-to-rest-api
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +25,44 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Send to All Subscribers
+    Pushcrew::PushNotification.send_to_all_subscribers({title:"Your_Title",message:"Your_Message",url:"Your_URL"})
+
+### Send to Subscribers of a Particular Segment
+    Pushcrew::PushNotification.send_to_subscribers_a_particular_segment({title:"Your_Title",message:"Your_Message",url:"Your_URL"}, "Your_SEGMENT_ID")
+
+### Send to a List of Subscribers
+    Pushcrew::PushNotification.send_to_a_list_subscribers({title:"Your_Title",message:"Your_Message",url:"Your_URL", subscriber_list: {"subscriber_list":["Your_SUBSCRIBER_ID"]}.to_json})
+
+### Send to an Individual Subscriber
+    Pushcrew::PushNotification.send_to_an_individual_subscribers(title:"Só uma",message:"Uma Mensagem",url:"Your_URL",subscriber_id:"Your_SUBSCRIBER_ID")
+
+### Check Status of Notification Request
+    Pushcrew::CheckStatus.notification_request("Your_NOTIFICATION_ID")
+
+### Add A Segment
+    Pushcrew::Segment.add_segment({name:"Your_SEGMENT_NAME"})
+
+### Get List of Segments
+    Pushcrew::Segment.get_list_segments
+
+### Add Subscribers to a Segment
+    Pushcrew::Segment.add_subscribers_to_segment({subscriber_list: {"subscriber_list":["Your_SUBSCRIBER_ID"]}.to_json},"Your_SEGMENT_ID")
+
+### Get Subscribers in a Segment
+    Pushcrew::Segment.get_subscribers_segment("Your_SEGMENT_ID")
+
+### Get Segments for a Subscriber
+    Pushcrew::Segment.get_segments_for_a_subscriber("Your_SUBSCRIBER_ID" )
+
+### Remove Subscribers from a Segment
+    Pushcrew::Segment.remove_subscribers_from_a_segment({"delete_list":["Your_SUBSCRIBER_ID"]}.to_json,"Your_SEGMENT_ID")
+
+### Delete A Segment
+    Pushcrew::Segment.delete_segment("Your_SEGMENT_ID")
+
+### Get SubscriberID of current user(In your web console)
+    console.log(pushcrew.subscriberId);
 
 ## Development
 
@@ -32,7 +72,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pushcrew. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/super-evil-unicorn/pushcrew/. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
