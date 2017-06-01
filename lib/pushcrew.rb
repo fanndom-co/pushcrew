@@ -8,7 +8,7 @@ module Pushcrew
   @@end_point = "https://pushcrew.com/api/v1/"
 
   @@SERVICE_HEADERS = {
-    :Authorization  => "Basic #{::Base64.encode64("#{ENV['PUSHCREW_TOKEN']}:")}",
+    :Authorization  => "key=#{ENV['PUSHCREW_TOKEN']}"
   }
 
   # funcao de post generica
