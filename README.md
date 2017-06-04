@@ -1,8 +1,6 @@
 # Pushcrew
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pushcrew`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby implementation of PushCrew API
 
 ## Reference 
 http://api.pushcrew.com/docs/introduction-to-rest-api
@@ -37,7 +35,7 @@ Please set a ENV['PUSHCREW_TOKEN'] in your project.
     Pushcrew::PushNotification.send_to_a_list_subscribers({title:"Your_Title",message:"Your_Message",url:"Your_URL", subscriber_list: {"subscriber_list":["Your_SUBSCRIBER_ID"]}.to_json})
 
 ### Send to an Individual Subscriber
-    Pushcrew::PushNotification.send_to_an_individual_subscribers(title:"Só uma",message:"Uma Mensagem",url:"Your_URL",subscriber_id:"Your_SUBSCRIBER_ID")
+    Pushcrew::PushNotification.send_to_an_individual_subscribers({title:"Só uma",message:"Uma Mensagem",url:"Your_URL",subscriber_id:"Your_SUBSCRIBER_ID"})
 
 ### Check Status of Notification Request
     Pushcrew::CheckStatus.notification_request("Your_NOTIFICATION_ID")
